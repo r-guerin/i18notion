@@ -1,17 +1,17 @@
 {
-  "name": "@bottle/i18n",
-  "version": "1.0.0",
+  "name": "i18notion",
+  "version": "1.0.1",
   "description": "Tool to integrate translations from Notion's workspace",
-  "author": "Remi GUERIN",
+  "author": "Remi GUERIN <rguerin.pro@gmail.com>",
   "license": "MIT",
   "bin": {
     "i18notion": "./cli.js"
   },
   "scripts": {
-    "start": "node cli.js",
     "test": "jest --colors --coverage",
     "tdd": "jest --watch"
   },
+  "type": "module",
   "dependencies": {
     "@notionhq/client": "^1.0.4",
     "chalk": "^4.0.0",

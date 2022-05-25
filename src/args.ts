@@ -1,4 +1,4 @@
-import yargs from 'yargs/yargs';
+import yargs from 'yargs';
 import { logUsage } from './log';
 
 type Args = {
@@ -6,8 +6,12 @@ type Args = {
 };
 
 export const parseArgs = (): Args => {
-  const { argv } = yargs(process.argv.slice(2)).parseSync();
-  const { resourcesDirPath } = (argv as Args) ?? {};
+  const { argv } = yargs.option('resourcesDirPath', {
+    alias: 'd',
+    demand: true,
+  });
+
+  const { resourcesDirPath } = argv as Args;
 
   if (!resourcesDirPath) {
     logUsage();

@@ -35,6 +35,7 @@ export const logUsage = () => {
 };
 
 export const logDone = () => {
+  logInfo('');
   console.timeEnd('Done in');
   logInfo('');
 };

@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import { run } from './src/main';
+import { run } from './main';
 
 config();
 run();

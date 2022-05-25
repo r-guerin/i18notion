@@ -1,9 +1,10 @@
 {
   "name": "i18notion",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tool to integrate translations from Notion's workspace",
   "author": "Remi GUERIN <rguerin.pro@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "bin": {
     "i18notion": "./cli.js"
   },

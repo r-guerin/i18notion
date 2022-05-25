@@ -2,24 +2,29 @@ import { Client } from '@notionhq/client';
 import { parseArgs } from './args';
 import { parseEnv } from './env';
 import { fetchTableRows } from './fetch';
-import { logDone, logWelcome } from './log';
+import { logDone, logError, logWelcome } from './log';
 import { parseTableRows } from './parse';
 import { writeTranslations } from './write';
 
 export const run = async (): Promise<void> => {
-  logWelcome();
+  try {
+    logWelcome();
 
-  const { apiKey, blockId } = parseEnv();
-  const { resourcesDirPath } = parseArgs();
+    const { apiKey, blockId } = parseEnv();
+    const { resourcesDirPath } = parseArgs();
 
-  const client = new Client({ auth: apiKey });
+    const client = new Client({ auth: apiKey });
 
-  const rows = await fetchTableRows(client, blockId);
-  const entries = parseTableRows(rows);
+    const rows = await fetchTableRows(client, blockId);
+    const entries = parseTableRows(rows);
 
-  const requests = entries.map(writeTranslations(resourcesDirPath));
+    const requests = entries.map(writeTranslations(resourcesDirPath));
 
-  await Promise.allSettled(requests);
+    await Promise.allSettled(requests);
 
-  logDone();
+    logDone();
+  } catch (error) {
+    logError(`An error occured: ${error}`);
+    process.exit(-1);
+  }
 };

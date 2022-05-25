@@ -1,7 +1,12 @@
 #!/usr/bin/env node
-
 import { config } from 'dotenv';
 import { run } from './main';
+import { logError } from './log';
 
-config();
-run();
+try {
+  config();
+  run();
+} catch (error) {
+  logError(`An error occured: ${error}`);
+  process.exit(-1);
+}

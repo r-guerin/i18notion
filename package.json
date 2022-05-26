@@ -5,8 +5,9 @@
   "author": "Remi GUERIN <rguerin.pro@gmail.com>",
   "license": "MIT",
   "bin": {
-    "i18notion": "./dist/index.js"
+    "i18notion": "dist/index.js"
   },
+  "files": ["dist"],
   "scripts": {
     "clean": "rimraf dist",
     "prepublish": "yarn clean && tsc",

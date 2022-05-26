@@ -2,7 +2,7 @@ import { Client } from '@notionhq/client';
 import { parseArgs } from './args';
 import { parseEnv } from './env';
 import { fetchTableRows } from './fetch';
-import { logDone, logError, logWelcome } from './log';
+import { logDone, logErrorDone, logWelcome } from './log';
 import { parseTableRows } from './parse';
 import { writeTranslations } from './write';
 
@@ -24,7 +24,6 @@ export const run = async (): Promise<void> => {
 
     logDone();
   } catch (error) {
-    logError(`An error occured: ${error}`);
-    process.exit(-1);
+    logErrorDone(error);
   }
 };

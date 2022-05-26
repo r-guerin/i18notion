@@ -13,7 +13,7 @@ export const writeTranslations =
     const path = resolve(cwd(), dirPath, `${key}.json`);
 
     try {
-      logInfo(`Will write following content in ${path}`);
+      logInfo(`Will write content in ${path}`);
 
       const data = JSON.stringify(content, null, 2);
       await write(path, data, { encoding: 'utf-8' });

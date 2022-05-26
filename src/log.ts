@@ -18,7 +18,6 @@ export const logWelcome = () => {
 ***  Welcome to i18notion  ***
 ******************************
   `);
-  console.time('Done in');
 };
 
 export const logUsage = () => {
@@ -34,8 +33,16 @@ export const logUsage = () => {
   `);
 };
 
+export const logErrorDone = (error: unknown) => {
+  logError(`An error occured: ${error}`);
+  process.exit(-1);
+};
+
 export const logDone = () => {
-  logInfo('');
-  console.timeEnd('Done in');
-  logInfo('');
+  logInfo(`
+******************************
+*** 18notion process done  ***
+******************************
+  `);
+  process.exit(0);
 };

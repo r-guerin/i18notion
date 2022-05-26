@@ -1,13 +1,15 @@
 {
   "name": "i18notion",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Tool to integrate translations from Notion's workspace",
   "author": "Remi GUERIN <rguerin.pro@gmail.com>",
   "license": "MIT",
   "bin": {
     "i18notion": "dist/index.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "rimraf dist",
     "prepublish": "yarn clean && tsc",

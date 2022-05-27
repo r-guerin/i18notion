@@ -1,6 +1,6 @@
 {
   "name": "i18notion",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Tool to integrate translations from Notion's workspace",
   "author": "Remi GUERIN <rguerin.pro@gmail.com>",
   "license": "MIT",

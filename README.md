@@ -20,7 +20,7 @@ yarn add i18notion -D
 
 1. Create a new Notion table containing your translations. First rows should contain your headers: one for the groups, one for the keys and one for each language you want to use. The header title for the language should be the language. Here is an example:
 
-![Notion translation table](./assets/notion_table.png)
+![Notion translation table](https://i.ibb.co/K9WVBmm/notion-table.png)
 
 2. Create a Notion internal integration following [those instructions](https://www.notion.so/help/add-and-manage-integrations-with-the-api).
 

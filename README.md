@@ -18,7 +18,7 @@ yarn add i18notion -D
 
 ## Getting started
 
-1. Create a new Notion table containing your translations. First rows should contain your headers: one for the groups, one for the keys and one for each language you want to use. The header title for the language should be the language. Here is an example:
+1. Create a new Notion table containing your translations. First rows should contain your headers: one for the groups, one for the keys and one for each language you want to use. Here is an example:
 
 ![Notion translation table](https://i.ibb.co/K9WVBmm/notion-table.png)
 
@@ -28,7 +28,7 @@ yarn add i18notion -D
 
 4. Retrieve yout internal integration API key and the block ID corresponding to the translation table. You can copy the block link and inspect the result to retrieve it. ie: In the following link `https://www.notion.so/Translations-67bdf9435c38401583fde776581a0bf8#000aaa111bbb` the block id would be `000aaa111bbb`.
 
-5. Place those values in your .env file
+5. Place those values in your `.env` file
 
 ```bash
 NOTION_API_KEY=secret_n0t10n_4p1_k3y
@@ -41,7 +41,7 @@ NOTION_BLOCK_ID=000aaa111bbb
   i18notion --resourcesDirPath="./src/features/i18n/resources"
 ```
 
-Generated files should look like this
+Generated files content should look like this (ie: `en.json`)
 
 ```json
 {
@@ -61,27 +61,23 @@ Generated files should look like this
 ```typescript
 // ./src/features/i18n/init.ts
 
+import i18next from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
 import en from './resources/en.json';
 import fr from './resources/fr.json';
 
 export const initI18n = (): void => {
-  i18next
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-      fallbackLng: [I18N_CONFIG.defaultLang],
-      interpolation: {
-        escapeValue: false,
+  i18next.use(initReactI18next).init({
+    resources: {
+      en: {
+        translation: en,
       },
-      resources: {
-        en: {
-          translation: en,
-        },
-        fr: {
-          translation: fr,
-        },
+      fr: {
+        translation: fr,
       },
-    });
+    },
+  });
 };
 ```
 

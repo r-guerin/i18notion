@@ -4,6 +4,7 @@
   "description": "Tool to integrate translations from Notion's workspace",
   "author": "Remi GUERIN <rguerin.pro@gmail.com>",
   "license": "MIT",
+  "keywords": ["i18n", "i18next", "notion"],
   "bin": {
     "i18notion": "dist/index.js"
   },

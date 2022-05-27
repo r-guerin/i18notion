@@ -46,8 +46,8 @@ Generated files content should look like this (ie: `en.json`)
 ```json
 {
   "general": {
-    "title": "Bottle",
-    "welcome": "Welcome on Bottle!"
+    "title": "MyApp",
+    "welcome": "Welcome on MyApp!"
   },
   "auth": {
     "login": "Login",

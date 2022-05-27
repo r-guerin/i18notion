@@ -1,17 +1,13 @@
-import chalk from 'chalk';
-
-chalk.level = 3;
-
 export const logInfo = (message: string) => {
-  console.log(message);
+  console.info(message);
 };
 
 export const logSuccess = (message: string) => {
-  console.log(`${chalk.green(message)} ✅`);
+  console.info(`${message} ✅`);
 };
 
 export const logError = (message: string) => {
-  console.log(`${chalk.red(message)} 💥`);
+  console.error(`${message} 💥`);
 };
 
 export const logWelcome = () => {

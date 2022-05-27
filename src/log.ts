@@ -1,15 +1,15 @@
 import { green, red } from 'chalk';
 
 export const logInfo = (message: string) => {
-  console.info(message);
+  console.log(message);
 };
 
 export const logSuccess = (message: string) => {
-  console.error(`${green(message)} ✅`);
+  console.log(`${green(message)} ✅`);
 };
 
 export const logError = (message: string) => {
-  console.error(`${red(message)} 💥`);
+  console.log(`${red(message)} 💥`);
 };
 
 export const logWelcome = () => {

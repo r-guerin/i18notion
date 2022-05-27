@@ -1,15 +1,17 @@
-import { green, red } from 'chalk';
+import chalk from 'chalk';
+
+chalk.level = 3;
 
 export const logInfo = (message: string) => {
   console.log(message);
 };
 
 export const logSuccess = (message: string) => {
-  console.log(`${green(message)} ✅`);
+  console.log(`${chalk.green(message)} ✅`);
 };
 
 export const logError = (message: string) => {
-  console.log(`${red(message)} 💥`);
+  console.log(`${chalk.red(message)} 💥`);
 };
 
 export const logWelcome = () => {

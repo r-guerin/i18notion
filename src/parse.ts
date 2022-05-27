@@ -1,37 +1,40 @@
-import _set from 'lodash/set';
-import _cloneDeep from 'lodash/cloneDeep';
-
-export type TranslationEntry = [string, Record<string, string>];
+type TranslationRecord = Record<string, Record<string, string>>;
+export type TranslationEntry = [string, TranslationRecord];
 
 export const parseTableRows = (originalRows: string[][]): TranslationEntry[] => {
-  const rows = _cloneDeep(originalRows);
-  const translationsMap = new Map<string, Record<string, string>>();
+  const rows = Array.from(originalRows);
+  const translationsMap = new Map<string, TranslationRecord>();
 
-  const headers = rows.shift() ?? [];
-  const [, , ...locales] = headers;
+  const [, , ...locales] = rows.shift() ?? [];
 
   locales.forEach((locale) => {
     translationsMap.set(locale, {});
   });
 
-  for (const row of rows) {
-    const [transGroup, transKey, ...values] = row;
+  let group: string | undefined, key: string | undefined, locale: string | undefined;
+  let translation: TranslationRecord | undefined;
 
-    if (!transGroup || !transKey) {
+  for (const row of rows) {
+    group = row.shift();
+    key = row.shift();
+
+    if (!group || !key) {
       continue;
     }
 
-    const key = `${transGroup}.${transKey}`;
+    for (const [index, value] of row.entries()) {
+      locale = locales[index];
+      translation = translationsMap.get(locale);
 
-    for (const [index, value] of values.entries()) {
-      const locale = locales[index];
-
-      if (!value || !locale) {
+      if (!value || !locale || !translation) {
         continue;
       }
 
-      const translation = translationsMap.get(locale) ?? {};
-      _set(translation, key, value);
+      if (!translation[group]) {
+        translation[group] = {};
+      }
+
+      translation[group][key] = value;
     }
   }
 

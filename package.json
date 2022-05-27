@@ -13,7 +13,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "transpile": "tsc",
-    "prepublish": "run-s clean transpile",
+    "prepare": "run-s clean transpile",
     "test": "jest --colors --coverage",
     "tdd": "jest --watch"
   },
@@ -21,7 +21,6 @@
     "@notionhq/client": "^1.0.4",
     "chalk": "^4.0.0",
     "dotenv": "^16.0.1",
-    "lodash": "^4.17.21",
     "yargs": "^17.5.1"
   },
   "devDependencies": {

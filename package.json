@@ -22,6 +22,10 @@
     "test": "jest --colors --coverage",
     "tdd": "jest --watch"
   },
+  "peerDependencies": {
+    "i18next": "^21.8.4",
+    "react-i18next": "^11.16.9"
+  },
   "dependencies": {
     "@notionhq/client": "^1.0.4",
     "dotenv": "^16.0.1",

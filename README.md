@@ -4,15 +4,17 @@ Source i18next resources from your Notion workspace
 
 ## Goal
 
-`i18notion` act as a layer on top of `i18next` and allow you to effortlessly fetch your translations directly from a Notion block in your team's workspace and generate corresponding resource files
+`i18notion` act as a layer on top of `i18next` and allow you to effortlessly fetch your translations from a Notion block in your team's workspace and generate corresponding resource files
 
 ## Installation
 
 ```bash
 # With npm
+npm install i18next react-i18next
 npm install i18notion -D
 
 # or yarn
+yarn add i18next react-i18next
 yarn add i18notion -D
 ```
 
